@@ -1,339 +1,222 @@
 'use client'
 
-import { motion, useTransform, useScroll } from 'framer-motion'
-import { useRef, useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
+import { Leaf, Zap, Sparkles, Globe, Award, Gem } from 'lucide-react'
 import Image from 'next/image'
-import { ShieldCheck, Globe } from 'lucide-react'
 
-// ✅ Type Definitions
-type Decoration = {
-  width: number
-  height: number
-  left: string
-  top: string
-  x: number
-  y: number
-  duration: number
-}
-
-type Dot = {
-  left: string
-  top: string
-}
-
-// ✅ Helper hooks
-function useRandomDecorations(count: number): Decoration[] {
-  const [items, setItems] = useState<Decoration[]>([])
-
-  useEffect(() => {
-    const generated: Decoration[] = [...Array(count)].map(() => ({
-      width: Math.random() * 300 + 100,
-      height: Math.random() * 300 + 100,
-      left: `${Math.random() * 100}%`,
-      top: `${Math.random() * 100}%`,
-      x: (Math.random() - 0.5) * 100,
-      y: (Math.random() - 0.5) * 100,
-      duration: Math.random() * 10 + 10
-    }))
-    setItems(generated)
-  }, [count])
-
-  return items
-}
-
-function useRandomDots(count: number): Dot[] {
-  const [dots, setDots] = useState<Dot[]>([])
-
-  useEffect(() => {
-    const generated: Dot[] = [...Array(count)].map(() => ({
-      left: `${Math.random() * 100}%`,
-      top: `${Math.random() * 100}%`
-    }))
-    setDots(generated)
-  }, [count])
-
-  return dots
-}
-
-export default function Hero() {
-  const ref = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start']
-  })
-
-  const y = useTransform(scrollYProgress, [0, 1], [0, 150])
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
-
-  const decorations = useRandomDecorations(12)
-  const dots = useRandomDots(3)
-
+export default function DivineHero() {
   return (
-    <section
-      ref={ref}
-      className="relative h-screen min-h-[800px] overflow-hidden bg-gradient-to-br from-white to-[#F1F5F9] flex items-center"
-    >
-      {/* Animated gradient background */}
-      <motion.div
-        className="absolute inset-0"
-        animate={{
-          background: [
-            'linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%)',
-            'linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%)',
-            'linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%)',
-          ]
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          repeatType: 'reverse'
-        }}
-      />
-
-      {/* Decorative elements */}
+    <div className="relative h-screen min-h-[800px] overflow-hidden bg-[#fafafa] pt-24">
+      {/* Divine Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {decorations.map((item, i) => (
+        {/* Ethereal glow */}
+        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-[#55A630]/5 rounded-full blur-[150px]" />
+        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-[#8CCF42]/5 rounded-full blur-[150px]" />
+        
+        {/* Subtle grid texture */}
+        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.02]" />
+        
+        {/* Floating particles */}
+        {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute rounded-full bg-[#55A630]/10"
             style={{
-              width: item.width,
-              height: item.height,
-              left: item.left,
-              top: item.top
+              width: Math.random() * 40 + 20,
+              height: Math.random() * 40 + 20,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
             }}
             animate={{
-              x: [0, item.x],
-              y: [0, item.y],
-              scale: [1, 1.05, 1]
+              y: [0, (Math.random() - 0.5) * 100],
+              opacity: [0.2, 0.4, 0.2],
             }}
             transition={{
-              duration: item.duration,
+              duration: Math.random() * 10 + 10,
               repeat: Infinity,
-              repeatType: 'reverse',
-              ease: 'easeInOut'
+              repeatType: "reverse",
             }}
           />
         ))}
       </div>
 
-      {/* Main content */}
-      <div className="max-w-7xl mx-auto px-4 w-full z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div className="relative z-10" style={{ y, opacity }}>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <motion.h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-gray-900 leading-tight mb-6">
-                <motion.span
-                  className="block bg-clip-text text-transparent bg-gradient-to-r from-[#55A630] to-[#8CCF42]"
-                  animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    repeatType: 'reverse'
-                  }}
-                >
-                  Solusi Segar
-                </motion.span>
-                <motion.span className="block">untuk Buah</motion.span>
-                <motion.span className="inline-block bg-gradient-to-r from-[#4CAF50] to-[#2E7D32] bg-clip-text text-transparent">
-                  Berkualitas Ekspor
-                </motion.span>
+      {/* Main Content */}
+      <div className="relative z-10 h-full flex items-center">
+        <div className="max-w-7xl mx-auto px-6 w-full">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Text Content */}
+            <div className="relative">
+              {/* Divine Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="inline-flex items-center bg-gradient-to-r from-[#55A630] to-[#2E7D32] text-white px-4 py-2 rounded-full mb-8"
+              >
+                <Gem className="mr-2" size={16} />
+                <span className="text-sm font-medium tracking-wider">DIVINE COLLECTION</span>
+              </motion.div>
+
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 leading-tight mb-6"
+              >
+                <span className="block font-serif italic text-[#55A630]">Divine</span>
+                <span className="block font-normal">Freshness</span>
+                <span className="block font-medium">
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#55A630] via-[#8CCF42] to-[#2E7D32]">
+                    Reimagined
+                  </span>
+                </span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-                className="text-lg sm:text-xl text-gray-600 max-w-xl mb-8"
+                transition={{ delay: 0.6 }}
+                className="text-lg text-gray-600 max-w-lg mb-8 font-light tracking-wide leading-relaxed"
               >
-                Ethylene absorber premium kami menjaga kesegaran buah selama distribusi.
-                Teknologi mutakhir dengan desain elegan.
+                Experience the divine technology that preserves nature&apos;s perfection. Our ethylene absorber is a masterpiece of minimalist design and unparalleled efficacy.
               </motion.p>
 
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
+                transition={{ delay: 0.8 }}
                 className="flex flex-wrap gap-4"
               >
                 <motion.a
-                  href="/produk"
-                  whileHover={{
-                    scale: 1.05,
-                    boxShadow: '0 10px 25px -5px rgba(85, 166, 48, 0.4)'
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-block rounded-full bg-gradient-to-r from-[#55A630] to-[#8CCF42] text-white font-semibold px-6 py-3 text-base shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+                  href="#"
+                  whileHover={{ y: -3, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="px-8 py-4 bg-gradient-to-r from-[#55A630] to-[#8CCF42] text-white rounded-full flex items-center gap-2 shadow-lg hover:shadow-xl transition-all"
                 >
-                  <span className="relative z-10">Lihat Produk</span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-[#8CCF42] to-[#55A630] opacity-0 group-hover:opacity-100 transition duration-500" />
-
-                  {/* Animated dots */}
-                  {dots.map((dot, i) => (
-                    <motion.span
-                      key={i}
-                      className="absolute rounded-full bg-white/30"
-                      style={{
-                        width: 8,
-                        height: 8,
-                        left: dot.left,
-                        top: dot.top
-                      }}
-                      animate={{
-                        scale: [0, 1, 0],
-                        opacity: [0, 0.8, 0]
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: i * 0.5
-                      }}
-                    />
-                  ))}
+                  <Sparkles size={18} />
+                  <span>Discover Divine</span>
                 </motion.a>
-
+                
                 <motion.a
-                  href="/kontak"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-block rounded-full bg-white text-gray-800 border border-gray-300 font-semibold px-6 py-3 text-base shadow-sm hover:shadow-md hover:border-gray-400 transition-all duration-300 relative overflow-hidden"
+                  href="#"
+                  whileHover={{ y: -3 }}
+                  className="px-8 py-4 border border-gray-200 bg-white/50 backdrop-blur-sm text-gray-900 rounded-full hover:border-[#55A630]/30 transition-all"
                 >
-                  <span className="relative z-10">Konsultasi Gratis</span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 -translate-x-full group-hover:translate-x-full" />
+                  <span className="flex items-center gap-2">
+                    <Zap size={18} className="text-[#55A630]" />
+                    Learn More
+                  </span>
                 </motion.a>
               </motion.div>
-            </motion.div>
-          </motion.div>
 
-          {/* Produk Premium */}
-          <motion.div
-            className="relative"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <div className="relative w-full h-[500px]">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative w-full max-w-md h-[400px]">
-                  <motion.div
-                    className="absolute inset-0 rounded-3xl bg-[#55A630]/20 blur-2xl"
-                    animate={{ scale: [1, 1.05, 1] }}
-                    transition={{ duration: 6, repeat: Infinity }}
-                  />
-
-                  <div className="relative h-full w-full flex items-center justify-center">
-                    <motion.div
-                      animate={{ rotate: [0, 2, -2, 0], y: [0, -10, 0] }}
-                      transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-                    >
-                      <Image
-                        src="/images/fruit-sachet.webp"
-                        alt="Ethylene Absorber Premium"
-                        width={500}
-                        height={500}
-                        className="object-contain h-full w-full z-10 drop-shadow-2xl"
-                        priority
-                      />
-                    </motion.div>
-                  </div>
-
-                  {/* Floating Fruits */}
-                  <motion.div
-                    className="absolute -left-10 -top-10 z-20"
-                    animate={{ y: [0, -15, 0] }}
-                    transition={{ duration: 4, repeat: Infinity }}
-                  >
-                    <motion.div
-                      animate={{ rotate: [0, 15, 0] }}
-                      transition={{ duration: 8, repeat: Infinity }}
-                    >
-                      <Image
-                        src="/images/buahsegar2.webp"
-                        alt="Buah Segar"
-                        width={150}
-                        height={150}
-                        className="drop-shadow-lg"
-                      />
-                    </motion.div>
-                  </motion.div>
-
-                  <motion.div
-                    className="absolute -right-10 -bottom-10 z-20"
-                    animate={{ y: [0, 15, 0] }}
-                    transition={{ duration: 5, repeat: Infinity, delay: 0.5 }}
-                  >
-                    <motion.div
-                      animate={{ rotate: [0, -15, 0] }}
-                      transition={{ duration: 7, repeat: Infinity }}
-                    >
-                      <Image
-                        src="/images/minuman1.webp"
-                        alt="Buah Segar"
-                        width={130}
-                        height={130}
-                        className="drop-shadow-lg"
-                      />
-                    </motion.div>
-                  </motion.div>
-                </div>
-              </div>
-
-              {/* Badges */}
+              {/* Divine Attributes */}
               <motion.div
-                className="absolute left-0 top-1/4 bg-white rounded-lg shadow-xl p-3 z-30 flex items-center backdrop-blur-sm bg-white/80"
-                initial={{ x: -50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.8 }}
-                whileHover={{ y: -5 }}
-              >
-                <div className="bg-[#55A630] rounded-md p-2 mr-3">
-                  <ShieldCheck className="text-white" size={24} />
-                </div>
-                <span className="text-sm font-medium">Sertifikasi BPOM</span>
-              </motion.div>
-
-              <motion.div
-                className="absolute right-0 bottom-1/4 bg-white rounded-lg shadow-xl p-3 z-30 flex items-center backdrop-blur-sm bg-white/80"
-                initial={{ x: 50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{ delay: 1 }}
-                whileHover={{ y: -5 }}
+                className="mt-16 grid grid-cols-3 gap-4 max-w-md"
               >
-                <div className="bg-[#2B6CB0] rounded-md p-2 mr-3">
-                  <Globe className="text-white" width={24} height={24} />
-                </div>
-                <span className="text-sm font-medium">Standar Ekspor</span>
+                {[
+                  { icon: Globe, text: "Global Standard" },
+                  { icon: Award, text: "Award Winning" },
+                  { icon: Leaf, text: "Nature's Touch" }
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    whileHover={{ y: -5 }}
+                    className="flex flex-col items-center text-center p-4 bg-white/50 backdrop-blur-sm rounded-xl border border-gray-100 shadow-sm"
+                  >
+                    <div className="w-10 h-10 rounded-full bg-[#55A630]/10 flex items-center justify-center mb-2">
+                      <item.icon className="text-[#55A630]" size={18} />
+                    </div>
+                    <span className="text-sm font-light">{item.text}</span>
+                  </motion.div>
+                ))}
               </motion.div>
             </div>
-          </motion.div>
+
+            {/* Divine Product Showcase */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5 }}
+              className="relative h-[600px] flex items-center justify-center"
+            >
+              {/* Product Container */}
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                className="relative w-full h-full max-w-md"
+              >
+                {/* Divine Glow */}
+                <motion.div
+                  animate={{
+                    boxShadow: [
+                      '0 45px 100px -20px rgba(85, 166, 48, 0.15)',
+                      '0 45px 100px -20px rgba(85, 166, 48, 0.25)',
+                      '0 45px 100px -20px rgba(85, 166, 48, 0.15)'
+                    ]
+                  }}
+                  transition={{
+                    duration: 6,
+                    repeat: Infinity
+                  }}
+                  className="absolute inset-0 rounded-3xl"
+                />
+
+                {/* Divine Product Card */}
+                <div className="relative h-full w-full bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-xl">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-50" />
+                  
+                  {/* Product Image */}
+                  <div className="relative h-full w-full flex items-center justify-center p-12">
+                    <Image
+                      src="/images/fruit-sachet.webp"
+                      alt="Divine Product"
+                      fill
+                      className="object-contain z-10 scale-110"
+                      style={{ filter: 'drop-shadow(0 20px 40px rgba(85, 166, 48, 0.2))' }}
+                    />
+                  </div>
+
+                  {/* Divine Badges */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1.2 }}
+                    className="absolute top-6 left-6 bg-white/80 backdrop-blur-sm px-3 py-2 rounded-full shadow-sm flex items-center gap-2"
+                  >
+                    <div className="w-6 h-6 rounded-full bg-[#55A630] flex items-center justify-center">
+                      <Leaf className="text-white" size={12} />
+                    </div>
+                    <span className="text-xs font-medium">Divine Freshness</span>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 1.4 }}
+                    className="absolute bottom-6 right-6 bg-gradient-to-r from-[#55A630] to-[#8CCF42] text-white px-4 py-2 rounded-full shadow-lg"
+                  >
+                    <span className="text-xs font-medium tracking-wider">LIMITED EDITION</span>
+                  </motion.div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
       </div>
 
-      {/* Scrolling indicator */}
+      {/* Divine Scroll Indicator */}
       <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
         animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 1.5, repeat: Infinity }}
+        transition={{ duration: 2, repeat: Infinity }}
       >
-        <div className="w-6 h-10 border-2 border-[#55A630] rounded-full flex justify-center backdrop-blur-sm bg-white/10">
-          <motion.div
-            className="w-1 h-2 bg-[#55A630] rounded-full mt-1"
-            animate={{ y: [0, 4, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          />
+        <div className="flex flex-col items-center">
+          <div className="w-px h-16 bg-gradient-to-t from-[#55A630] to-transparent" />
+          <span className="text-xs text-[#55A630] mt-2 tracking-widest">EXPLORE DIVINITY</span>
         </div>
-        <motion.div
-          className="text-[#55A630] text-xs font-medium mt-2 text-center"
-          animate={{ opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          Scroll untuk jelajahi
-        </motion.div>
       </motion.div>
-    </section>
+    </div>
   )
 }
