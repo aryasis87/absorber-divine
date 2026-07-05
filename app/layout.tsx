@@ -5,10 +5,10 @@ import Footer from '@/components/Footer'
 
 const display = Fraunces({ subsets: ["latin"], variable: "--font-display", weight: ["500","600","700"] })
 
-const __jsonld = {"@context":"https://schema.org","@type":"CreativeWork","name":"EthyleneAbsorber — Konsep Divine","description":"Landing page produk ethylene absorber","url":"https://absorber-divine.vercel.app"};
+const __jsonld = {"@context":"https://schema.org","@type":"CreativeWork","name":"EthyleneAbsorber — Konsep Divine","description":"Landing page produk ethylene absorber","url":"https://absorber-divine.pintuweb.com"};
 
 export const metadata = {
-  metadataBase: new URL("https://absorber-divine.vercel.app"),
+  metadataBase: new URL("https://absorber-divine.pintuweb.com"),
   title: "EthyleneAbsorber — Konsep Divine | Dickson Synergy",
   description: "Landing page EthyleneAbsorber konsep \"Divine\": elegan dengan sentuhan italic, \"freshness reimagined\" untuk kesan eksklusif.",
   applicationName: "EthyleneAbsorber",
@@ -16,11 +16,11 @@ export const metadata = {
   authors: [{ name: "EthyleneAbsorber" }],
   creator: "EthyleneAbsorber",
   publisher: "EthyleneAbsorber",
-  alternates: { canonical: "https://absorber-divine.vercel.app" },
+  alternates: { canonical: "https://absorber-divine.pintuweb.com" },
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://absorber-divine.vercel.app",
+    url: "https://absorber-divine.pintuweb.com",
     siteName: "EthyleneAbsorber",
     title: "EthyleneAbsorber — Konsep Divine | Dickson Synergy",
     description: "Landing page EthyleneAbsorber konsep \"Divine\": elegan dengan sentuhan italic, \"freshness reimagined\" untuk kesan eksklusif.",
