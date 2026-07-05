@@ -88,7 +88,7 @@ export default function DivineHero() {
                 className="flex flex-wrap gap-4"
               >
                 <motion.a
-                  href="#"
+                  href="/#features"
                   whileHover={{ y: -3, scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="px-8 py-4 bg-gradient-to-r from-[#55A630] to-[#8CCF42] text-white rounded-full flex items-center gap-2 shadow-lg hover:shadow-xl transition-all"
@@ -98,7 +98,7 @@ export default function DivineHero() {
                 </motion.a>
                 
                 <motion.a
-                  href="#"
+                  href="/#features"
                   whileHover={{ y: -3 }}
                   className="px-8 py-4 border border-gray-200 bg-white/50 backdrop-blur-sm text-gray-900 rounded-full hover:border-[#55A630]/30 transition-all"
                 >

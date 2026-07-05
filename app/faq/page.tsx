@@ -370,7 +370,7 @@ export default function FAQPage() {
             <p className="text-gray-600 mb-4">
               Lihat hasil uji laboratorium dan studi lapangan tentang efektivitas produk kami.
             </p>
-            <a href="#" className="text-[#55A630] font-medium inline-flex items-center gap-1 hover:underline">
+            <a href="/#features" className="text-[#55A630] font-medium inline-flex items-center gap-1 hover:underline">
               Pelajari lebih lanjut
               <ChevronRight size={16} />
             </a>
@@ -390,7 +390,7 @@ export default function FAQPage() {
             <p className="text-gray-600 mb-4">
               Panduan lengkap untuk memaksimalkan efektivitas produk dalam berbagai skenario.
             </p>
-            <a href="#" className="text-[#55A630] font-medium inline-flex items-center gap-1 hover:underline">
+            <a href="/#features" className="text-[#55A630] font-medium inline-flex items-center gap-1 hover:underline">
               Pelajari lebih lanjut
               <ChevronRight size={16} />
             </a>
@@ -410,7 +410,7 @@ export default function FAQPage() {
             <p className="text-gray-600 mb-4">
               Tips dan trik untuk pengiriman ekspor buah dan sayuran dengan hasil optimal.
             </p>
-            <a href="#" className="text-[#55A630] font-medium inline-flex items-center gap-1 hover:underline">
+            <a href="/#features" className="text-[#55A630] font-medium inline-flex items-center gap-1 hover:underline">
               Pelajari lebih lanjut
               <ChevronRight size={16} />
             </a>

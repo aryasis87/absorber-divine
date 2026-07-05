@@ -264,7 +264,7 @@ export default function HomePage() {
             className="text-center mt-16"
           >
             <motion.a
-              href="/testimonials"
+              href="/#features"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center justify-center px-8 py-3.5 bg-white border border-gray-200 rounded-full shadow-sm hover:shadow-md transition-all text-emerald-600 font-medium group"

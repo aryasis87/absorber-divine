@@ -210,16 +210,16 @@ export default function ContactPage() {
                 </div>
                 <h3 className="font-bold text-lg text-gray-800 mb-4">Media Sosial</h3>
                 <div className="flex gap-3">
-                  <a href="#" className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center hover:bg-green-100 transition-colors">
+                  <a href="/#features" className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center hover:bg-green-100 transition-colors">
                     <Facebook className="text-green-600" size={18} />
                   </a>
-                  <a href="#" className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center hover:bg-green-100 transition-colors">
+                  <a href="/#features" className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center hover:bg-green-100 transition-colors">
                     <Twitter className="text-green-600" size={18} />
                   </a>
-                  <a href="#" className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center hover:bg-green-100 transition-colors">
+                  <a href="/#features" className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center hover:bg-green-100 transition-colors">
                     <Instagram className="text-green-600" size={18} />
                   </a>
-                  <a href="#" className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center hover:bg-green-100 transition-colors">
+                  <a href="/#features" className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center hover:bg-green-100 transition-colors">
                     <Linkedin className="text-green-600" size={18} />
                   </a>
                 </div>
