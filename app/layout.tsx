@@ -5,9 +5,38 @@ import Footer from '@/components/Footer'
 
 const display = Fraunces({ subsets: ["latin"], variable: "--font-display", weight: ["500","600","700"] })
 
+const __jsonld = {"@context":"https://schema.org","@type":"CreativeWork","name":"EthyleneAbsorber — Konsep Divine","description":"Landing page produk ethylene absorber","url":"https://absorber-divine.vercel.app"};
+
 export const metadata = {
-  title: 'EthyleneAbsorber — Konsep Divine | Dickson Synergy',
-  description: 'Jaga kesegaran buah lebih lama dengan teknologi ethylene absorber berkualitas tinggi.',
+  metadataBase: new URL("https://absorber-divine.vercel.app"),
+  title: "EthyleneAbsorber — Konsep Divine | Dickson Synergy",
+  description: "Landing page EthyleneAbsorber konsep \"Divine\": elegan dengan sentuhan italic, \"freshness reimagined\" untuk kesan eksklusif.",
+  applicationName: "EthyleneAbsorber",
+  keywords: ["ethylene absorber", "kesegaran buah", "landing page elegan", "desain web"],
+  authors: [{ name: "EthyleneAbsorber" }],
+  creator: "EthyleneAbsorber",
+  publisher: "EthyleneAbsorber",
+  alternates: { canonical: "https://absorber-divine.vercel.app" },
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    url: "https://absorber-divine.vercel.app",
+    siteName: "EthyleneAbsorber",
+    title: "EthyleneAbsorber — Konsep Divine | Dickson Synergy",
+    description: "Landing page EthyleneAbsorber konsep \"Divine\": elegan dengan sentuhan italic, \"freshness reimagined\" untuk kesan eksklusif.",
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "EthyleneAbsorber — Konsep Divine | Dickson Synergy" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "EthyleneAbsorber — Konsep Divine | Dickson Synergy",
+    description: "Landing page EthyleneAbsorber konsep \"Divine\": elegan dengan sentuhan italic, \"freshness reimagined\" untuk kesan eksklusif.",
+    images: ["/og.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -17,7 +46,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main>{children}</main>
         <Footer />
-      </body>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(__jsonld) }} />
+        </body>
     </html>
   )
 }
