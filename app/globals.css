@@ -1,16 +1,126 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   EthyleneAbsorber — Konsep "Divine" / EthyleneGuard
+   Bahasa desain: PLATE BOTANI (lembar spesimen herbarium)
+   Kesegaran diperlakukan sebagai sesuatu yang dirawat dan dihormati, bukan
+   direkayasa. Rupa halaman meniru pelat ilustrasi botani abad ke-19:
+   kertas gading, garis rambut ganda, bingkai berpuncak lengkung, penomoran
+   spesimen dengan angka Romawi, dan aksen kuningan.
+   ========================================================================== */
 
-:root {
-}
+@theme {
+  --color-ink: #1b3b2f; /* hijau botani pekat — teks & bidang gelap */
+  --color-ink-soft: #2f5545;
+  --color-leaf: #4a7c59; /* hijau daun — penegasan */
+  --color-brass: #a3822f; /* kuningan — aksen mulia */
+  --color-brass-soft: #c9a961;
+  --color-paper: #f6f2e8; /* kertas gading */
+  --color-paper-deep: #ebe3d2;
+  --color-plum: #6b3d52; /* warna lewat matang — lawan dari segar */
 
-@theme inline {
-}
-
-@media (prefers-color-scheme: dark) {
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-display), ui-serif, Georgia, serif;
 }
 
 body {
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  background-color: var(--color-paper);
+  color: var(--color-ink-soft);
 }
 
-h1, h2, h3 { font-family: var(--font-display), system-ui, sans-serif; letter-spacing: -0.02em; }
+h1,
+h2,
+h3 {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-optical-sizing: auto;
+  letter-spacing: -0.015em;
+}
+
+/* --------------------------------------------------------------------------
+   1. Kapital kecil berspasi — penanda pelat & label spesimen
+   -------------------------------------------------------------------------- */
+.sc {
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.6875rem;
+  line-height: 1.3;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   2. Puncak lengkung — bingkai pelat botani
+   -------------------------------------------------------------------------- */
+.arch {
+  border-radius: 999px 999px 6px 6px;
+}
+
+.arch-sm {
+  border-radius: 999px 999px 3px 3px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Garis rambut ganda — pemisah khas lembar cetak lama
+   -------------------------------------------------------------------------- */
+.rule-double {
+  border: 0;
+  height: 4px;
+  background-image: linear-gradient(
+    to bottom,
+    currentColor 0 1px,
+    transparent 1px 3px,
+    currentColor 3px 4px
+  );
+  opacity: 0.35;
+}
+
+/* --------------------------------------------------------------------------
+   4. Tekstur kertas laid — serat halus di balik bidang terang
+   -------------------------------------------------------------------------- */
+.laid {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgb(27 59 47 / 0.028) 0 1px,
+    transparent 1px 6px
+  );
+}
+
+/* --------------------------------------------------------------------------
+   5. Sulur — ornamen tipis pengapit judul
+   -------------------------------------------------------------------------- */
+.tendril::before,
+.tendril::after {
+  content: "";
+  display: inline-block;
+  width: 1.75rem;
+  height: 1px;
+  background: currentColor;
+  vertical-align: middle;
+  opacity: 0.5;
+}
+.tendril::before {
+  margin-right: 0.75rem;
+}
+.tendril::after {
+  margin-left: 0.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   6. Aksesibilitas
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:where(a, button, input, textarea, select, summary):focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 3px;
+}

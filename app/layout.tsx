@@ -1,11 +1,48 @@
 import "./globals.css"
-import { Fraunces } from "next/font/google"
+import { Fraunces, Karla } from "next/font/google"
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
-const display = Fraunces({ subsets: ["latin"], variable: "--font-display", weight: ["500","600","700"] })
+/* Fraunces memikul judul — serif dengan sumbu optis dan italic yang lembut,
+   pas untuk nada "dirawat" alih-alih "direkayasa". Karla memikul teks isi. */
+const display = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
+})
 
-const __jsonld = {"@context":"https://schema.org","@type":"CreativeWork","name":"EthyleneAbsorber — Konsep Divine","description":"Landing page produk ethylene absorber","url":"https://absorber-divine.pintuweb.com"};
+const body = Karla({
+  subsets: ["latin"],
+  variable: "--font-body",
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+})
+
+const __jsonld = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Product",
+      name: "EthyleneGuard — EthyleneAbsorber",
+      brand: { "@type": "Brand", name: "EthyleneGuard" },
+      description:
+        "Sachet penyerap gas etilen. Satu sachet merawat ruang 1–2 m³ selama 30 hari, hingga 45 hari pada kondisi ideal.",
+      additionalProperty: [
+        { "@type": "PropertyValue", name: "Registrasi BPOM RI", value: "NA18191100273" },
+        { "@type": "PropertyValue", name: "Cakupan per sachet", value: "1–2 m³" },
+        { "@type": "PropertyValue", name: "Masa efektif", value: "30 hari (ideal 45 hari)" },
+      ],
+    },
+    {
+      "@type": "CreativeWork",
+      name: "EthyleneAbsorber — Konsep Divine",
+      description: "Landing page produk ethylene absorber, konsep desain \"Divine\".",
+      url: "https://absorber-divine.pintuweb.com",
+    },
+  ],
+};
 
 export const metadata = {
   metadataBase: new URL("https://absorber-divine.pintuweb.com"),
@@ -39,12 +76,22 @@ export const metadata = {
   },
 }
 
+export const viewport = {
+  themeColor: "#1b3b2f",
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="id" className="scroll-smooth">
-      <body className={`${display.variable} antialiased bg-white text-gray-800 selection:bg-lime-200 selection:text-black overflow-x-hidden max-w-[100vw]`}>
+      <body className={`${display.variable} ${body.variable} antialiased bg-paper text-ink-soft selection:bg-brass-soft selection:text-ink overflow-x-hidden max-w-[100vw]`}>
+        <a
+          href="#konten"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-ink focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-paper"
+        >
+          Lompat ke konten utama
+        </a>
         <Navbar />
-        <main>{children}</main>
+        <main id="konten">{children}</main>
         <Footer />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(__jsonld) }} />
         </body>
