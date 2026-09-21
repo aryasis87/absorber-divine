@@ -39,13 +39,13 @@ const __jsonld = {
       "@type": "CreativeWork",
       name: "EthyleneAbsorber — Konsep Divine",
       description: "Landing page produk ethylene absorber, konsep desain \"Divine\".",
-      url: "https://absorber-divine.pintuweb.com",
+      url: "https://absorber-divine.vercel.app",
     },
   ],
 };
 
 export const metadata = {
-  metadataBase: new URL("https://absorber-divine.pintuweb.com"),
+  metadataBase: new URL("https://absorber-divine.vercel.app"),
   title: "EthyleneAbsorber — Konsep Divine | Dickson Synergy",
   description: "Landing page EthyleneAbsorber konsep \"Divine\": elegan dengan sentuhan italic, \"freshness reimagined\" untuk kesan eksklusif.",
   applicationName: "EthyleneAbsorber",
@@ -53,11 +53,11 @@ export const metadata = {
   authors: [{ name: "EthyleneAbsorber" }],
   creator: "EthyleneAbsorber",
   publisher: "EthyleneAbsorber",
-  alternates: { canonical: "https://absorber-divine.pintuweb.com" },
+  alternates: { canonical: "https://absorber-divine.vercel.app" },
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://absorber-divine.pintuweb.com",
+    url: "https://absorber-divine.vercel.app",
     siteName: "EthyleneAbsorber",
     title: "EthyleneAbsorber — Konsep Divine | Dickson Synergy",
     description: "Landing page EthyleneAbsorber konsep \"Divine\": elegan dengan sentuhan italic, \"freshness reimagined\" untuk kesan eksklusif.",
