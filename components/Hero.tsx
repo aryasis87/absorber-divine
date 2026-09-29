@@ -85,7 +85,7 @@ export default function Hero() {
           <div className="arch relative overflow-hidden border border-ink/15 bg-paper-deep p-3">
             <div className="arch-sm relative aspect-[4/5] overflow-hidden bg-paper">
               <Image
-                src="/images/fruit-sachet.webp"
+                src="/images/sachet-buah.webp"
                 alt="Sachet EthyleneGuard di antara buah segar"
                 fill
                 priority
