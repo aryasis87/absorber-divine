@@ -34,7 +34,7 @@ export default function Hero() {
         {/* Pernyataan                                                          */}
         {/* ------------------------------------------------------------------ */}
         <div>
-          <p className="sc tendril mb-8 inline-block text-brass">EthyleneGuard</p>
+          <p className="sc tendril mb-8 inline-block text-brass-ink">EthyleneGuard</p>
 
           <h1 className="font-serif text-[2.6rem] leading-[1.06] font-normal text-ink sm:text-5xl lg:text-[3.5rem]">
             Kesegaran yang <em className="not-italic text-leaf italic">dirawat</em>,
@@ -97,9 +97,9 @@ export default function Hero() {
 
           {/* Keterangan pelat, gaya kartu herbarium */}
           <figcaption className="mx-auto mt-6 max-w-xs border border-ink/12 bg-paper px-6 py-5 text-center">
-            <p className="sc text-brass">Spesimen I</p>
+            <p className="sc text-brass-ink">Spesimen I</p>
             <p className="mt-2 font-serif text-lg text-ink italic">Sachet dalam kemasan</p>
-            <p className="mt-2 text-sm leading-relaxed text-ink-soft/70">
+            <p className="mt-2 text-sm leading-relaxed text-ink-soft">
               Diletakkan di antara buah, tanpa bersentuhan langsung dengan kulitnya.
             </p>
           </figcaption>

@@ -6,6 +6,8 @@ const plates = [
   { label: 'Cara Kerja', href: '/#cara-kerja' },
   { label: 'Lembar Spesimen', href: '/#penerapan' },
   { label: 'Jaminan', href: '/#jaminan' },
+  { label: 'Herbarium Kesegaran', href: '/herbarium' },
+  { label: 'Catatan Herbarium', href: '/jurnal' },
   { label: 'Tanya Jawab', href: '/faq' },
   { label: 'Hubungi Kami', href: '/kontak' },
 ]
@@ -35,7 +37,7 @@ export default function Footer() {
               Sachet penyerap etilen untuk buah dan sayur yang harus menempuh jarak sebelum sampai
               ke meja. Dipasok oleh PT Dickson Synergy.
             </p>
-            <p className="sc mt-7 text-paper/40">
+            <p className="sc mt-7 text-paper/70">
               Reg. BPOM RI
               <span className="mt-1.5 block text-brass-soft">NA18191100273</span>
             </p>
@@ -60,7 +62,7 @@ export default function Footer() {
               {standards.map(([k, v]) => (
                 <div key={k}>
                   <dt className="text-sm text-paper/75">{k}</dt>
-                  <dd className="sc mt-1 text-paper/40">{v}</dd>
+                  <dd className="sc mt-1 text-paper/70">{v}</dd>
                 </div>
               ))}
             </dl>
@@ -70,13 +72,13 @@ export default function Footer() {
             <h2 className="sc mb-5 border-b border-paper/20 pb-3 text-paper">Hubungi</h2>
             <ul className="space-y-4 text-sm">
               <li>
-                <span className="sc block text-paper/40">Telepon</span>
+                <span className="sc block text-paper/70">Telepon</span>
                 <a href="tel:+628123456789" className="transition-colors hover:text-brass-soft">
                   +62 812 3456 7890
                 </a>
               </li>
               <li>
-                <span className="sc block text-paper/40">Surel</span>
+                <span className="sc block text-paper/70">Surel</span>
                 <a
                   href="mailto:support@ethyleneabsorber.com"
                   className="break-all transition-colors hover:text-brass-soft"
@@ -85,7 +87,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <span className="sc block text-paper/40">Alamat</span>
+                <span className="sc block text-paper/70">Alamat</span>
                 <span className="leading-relaxed">Jl. Teknologi No. 123, Bandung 40234</span>
               </li>
             </ul>
@@ -93,8 +95,12 @@ export default function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col gap-4 border-t border-paper/15 pt-7 sm:flex-row sm:items-center sm:justify-between">
-          <p className="sc text-paper/40">© {tahun} EthyleneGuard · PT Dickson Synergy</p>
-          <p className="sc text-paper/40">Herbarium Edisi {tahun}</p>
+          <p className="sc text-paper/70">© {tahun} EthyleneGuard · PT Dickson Synergy</p>
+          <p className="sc flex flex-wrap gap-x-5 gap-y-2 text-paper/70">
+            <Link href="/privacy" className="hover:text-brass-soft">Kebijakan Privasi</Link>
+            <Link href="/terms" className="hover:text-brass-soft">Syarat & Ketentuan</Link>
+            <span>Herbarium Edisi {tahun}</span>
+          </p>
         </div>
       </div>
     </footer>

@@ -20,7 +20,7 @@ export function PlateMark({
   tone?: Tone;
   center?: boolean;
 }) {
-  const accent = tone === 'dark' ? 'text-brass-soft' : 'text-brass';
+  const accent = tone === 'dark' ? 'text-brass-soft' : 'text-brass-ink';
   return (
     <p className={`mb-6 flex items-center gap-3.5 ${center ? 'justify-center' : ''}`}>
       <span
@@ -30,7 +30,7 @@ export function PlateMark({
         Pelat {no}
       </span>
       <span aria-hidden="true" className={`h-px w-8 ${tone === 'dark' ? 'bg-brass-soft/50' : 'bg-brass/50'}`} />
-      <span className={`sc ${tone === 'dark' ? 'text-paper/70' : 'text-ink-soft/70'}`}>{children}</span>
+      <span className={`sc ${tone === 'dark' ? 'text-paper/70' : 'text-ink-soft'}`}>{children}</span>
     </p>
   );
 }
@@ -54,7 +54,7 @@ export function PlateHead({
   className?: string;
 }) {
   const titleColor = tone === 'dark' ? 'text-paper' : 'text-ink';
-  const leadColor = tone === 'dark' ? 'text-paper/70' : 'text-ink-soft/80';
+  const leadColor = tone === 'dark' ? 'text-paper/70' : 'text-ink-soft';
   return (
     <div className={`${center ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl'} ${className}`}>
       <PlateMark no={no} tone={tone} center={center}>
@@ -99,7 +99,7 @@ export function Figure({
       >
         {value}
       </div>
-      <div className={`sc mt-2.5 ${tone === 'dark' ? 'text-paper/55' : 'text-ink-soft/60'}`}>
+      <div className={`sc mt-2.5 ${tone === 'dark' ? 'text-paper/70' : 'text-ink-soft'}`}>
         {label}
       </div>
     </div>

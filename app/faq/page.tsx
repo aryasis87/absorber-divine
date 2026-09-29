@@ -75,7 +75,7 @@ export default function FaqPage() {
                       aria-controls={`jwb-${i}`}
                       className="flex w-full items-start gap-5 py-7 text-left"
                     >
-                      <span aria-hidden="true" className="mt-1 shrink-0 font-serif text-sm text-brass italic">
+                      <span aria-hidden="true" className="mt-1 shrink-0 font-serif text-sm text-brass-ink italic">
                         {['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'][i]}
                       </span>
                       <span className="flex-1 font-serif text-lg text-ink md:text-xl">{f.q}</span>

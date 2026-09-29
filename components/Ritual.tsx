@@ -48,13 +48,13 @@ export default function Ritual() {
             <li key={s.no} className="flex gap-6">
               <span
                 aria-hidden="true"
-                className="font-serif text-[1.75rem] leading-none text-brass italic"
+                className="font-serif text-[1.75rem] leading-none text-brass-ink italic"
               >
                 {s.no}
               </span>
               <div className="border-t border-ink/12 pt-4">
                 <h3 className="font-serif text-xl text-ink">{s.title}</h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-ink-soft/80">{s.desc}</p>
+                <p className="mt-2.5 text-sm leading-relaxed text-ink-soft">{s.desc}</p>
               </div>
             </li>
           ))}
@@ -67,7 +67,7 @@ export default function Ritual() {
           </p>
           <Link
             href="/faq"
-            className="sc mt-6 inline-block text-brass underline-offset-8 hover:underline"
+            className="sc mt-6 inline-block text-brass-ink underline-offset-8 hover:underline"
           >
             Pertanyaan teknis selengkapnya
           </Link>

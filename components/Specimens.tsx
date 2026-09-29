@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { PlateHead } from '@/components/ui';
 
 const specimens = [
@@ -55,13 +56,19 @@ export default function Specimens() {
                 </div>
               </div>
               <figcaption className="mt-5 text-center">
-                <p className="sc text-brass">Spesimen {s.no}</p>
+                <p className="sc text-brass-ink">Spesimen {s.no}</p>
                 <h3 className="mt-2 font-serif text-xl text-ink">{s.title}</h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-ink-soft/75">{s.desc}</p>
+                <p className="mt-2.5 text-sm leading-relaxed text-ink-soft">{s.desc}</p>
               </figcaption>
             </figure>
           ))}
         </div>
+
+        <p className="mt-14 text-center">
+          <Link href="/herbarium" className="sc inline-block border-b border-brass pb-1 text-ink hover:text-leaf">
+            Buka herbarium lengkap — delapan pelat komoditas
+          </Link>
+        </p>
       </div>
     </section>
   );

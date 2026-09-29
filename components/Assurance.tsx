@@ -29,7 +29,7 @@ export default function Assurance() {
         {/* Cap kuningan */}
         <div className="mb-12 flex justify-center">
           <div className="flex h-28 w-28 flex-col items-center justify-center rounded-full border border-brass/45 text-center">
-            <span className="font-serif text-[1.65rem] leading-none text-brass italic">IV</span>
+            <span className="font-serif text-[1.65rem] leading-none text-brass-ink italic">IV</span>
             <span className="sc mt-2 text-brass/80">Otoritas</span>
           </div>
         </div>
@@ -38,13 +38,13 @@ export default function Assurance() {
           {marks.map((m) => (
             <div key={m.authority} className="bg-paper px-7 py-7">
               <dt className="font-serif text-lg text-ink">{m.authority}</dt>
-              <dd className="sc mt-2 text-brass">{m.code}</dd>
-              <dd className="mt-2.5 text-sm leading-relaxed text-ink-soft/70">{m.scope}</dd>
+              <dd className="sc mt-2 text-brass-ink">{m.code}</dd>
+              <dd className="mt-2.5 text-sm leading-relaxed text-ink-soft">{m.scope}</dd>
             </div>
           ))}
         </dl>
 
-        <p className="mt-8 text-center text-sm leading-relaxed text-ink-soft/70">
+        <p className="mt-8 text-center text-sm leading-relaxed text-ink-soft">
           Sachet yang belum dibuka dapat disimpan hingga <strong className="font-semibold text-ink">2 tahun</strong> dalam
           kemasan aslinya, di tempat sejuk dan kering.
         </p>

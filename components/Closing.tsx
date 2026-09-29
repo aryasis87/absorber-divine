@@ -25,18 +25,18 @@ export default function Closing() {
         <div className="relative z-10 mx-auto grid max-w-5xl gap-14 px-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <p className="mb-6 flex items-center gap-3.5">
-              <span aria-hidden="true" className="font-serif text-sm text-brass italic">
+              <span aria-hidden="true" className="font-serif text-sm text-brass-ink italic">
                 Pelat VIII
               </span>
               <span aria-hidden="true" className="h-px w-8 bg-brass/50" />
-              <span className="sc text-ink-soft/70">Tanya Jawab</span>
+              <span className="sc text-ink-soft">Tanya Jawab</span>
             </p>
             <h2 className="font-serif text-[2rem] leading-[1.14] text-ink md:text-[2.6rem]">
               Tiga hal yang paling sering ditanyakan
             </h2>
             <Link
               href="/faq"
-              className="sc mt-8 inline-block border-b border-brass/50 pb-1 text-brass hover:border-brass"
+              className="sc mt-8 inline-block border-b border-brass/50 pb-1 text-brass-ink hover:border-brass"
             >
               Baca semuanya
             </Link>
@@ -46,7 +46,7 @@ export default function Closing() {
             {faqs.map((f) => (
               <div key={f.q} className="border-b border-ink/12 py-7 first:border-t first:border-ink/12">
                 <dt className="font-serif text-lg text-ink">{f.q}</dt>
-                <dd className="mt-2.5 text-sm leading-relaxed text-ink-soft/80">{f.a}</dd>
+                <dd className="mt-2.5 text-sm leading-relaxed text-ink-soft">{f.a}</dd>
               </div>
             ))}
           </dl>

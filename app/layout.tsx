@@ -46,7 +46,10 @@ const __jsonld = {
 
 export const metadata = {
   metadataBase: new URL("https://absorber-divine.vercel.app"),
-  title: "EthyleneAbsorber — Konsep Divine | Dickson Synergy",
+  title: {
+    default: "EthyleneAbsorber — Konsep Divine | Dickson Synergy",
+    template: "%s — EthyleneGuard · Dickson Synergy",
+  },
   description: "Landing page EthyleneAbsorber konsep \"Divine\": elegan dengan sentuhan italic, \"freshness reimagined\" untuk kesan eksklusif.",
   applicationName: "EthyleneAbsorber",
   keywords: ["ethylene absorber", "kesegaran buah", "landing page elegan", "desain web"],

@@ -15,6 +15,7 @@
   --color-leaf: #4a7c59; /* hijau daun — penegasan */
   --color-brass: #a3822f; /* kuningan — aksen mulia */
   --color-brass-soft: #c9a961;
+  --color-brass-ink: #7a611e; /* kuningan untuk teks kecil — kontras 5,5:1 di kertas gading */
   --color-paper: #f6f2e8; /* kertas gading */
   --color-paper-deep: #ebe3d2;
   --color-plum: #6b3d52; /* warna lewat matang — lawan dari segar */

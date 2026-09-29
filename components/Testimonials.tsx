@@ -55,14 +55,14 @@ export default function Testimonials() {
                 </span>
                 <span>
                   <span className="block text-sm font-semibold text-ink">{v.name}</span>
-                  <span className="sc mt-1 block text-ink-soft/55">{v.role}</span>
+                  <span className="sc mt-1 block text-ink-soft">{v.role}</span>
                 </span>
               </figcaption>
             </figure>
           ))}
         </div>
 
-        <p className="sc mt-10 text-center leading-[1.7] text-ink-soft/45">
+        <p className="sc mt-10 text-center leading-[1.7] text-ink-soft">
           Kutipan di atas adalah ilustrasi skenario penggunaan untuk keperluan purwarupa desain.
         </p>
       </div>

@@ -7,11 +7,10 @@ import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const NAV = [
-  { label: 'Pematangan', href: '/#pematangan' },
   { label: 'Kurva Kesegaran', href: '/#kurva' },
   { label: 'Cara Kerja', href: '/#cara-kerja' },
-  { label: 'Spesimen', href: '/#penerapan' },
-  { label: 'Jaminan', href: '/#jaminan' },
+  { label: 'Herbarium', href: '/herbarium' },
+  { label: 'Catatan', href: '/jurnal' },
   { label: 'Tanya Jawab', href: '/faq' },
 ]
 
@@ -49,7 +48,7 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
         <Link href="/" className="group flex items-baseline gap-2.5" aria-label="EthyleneGuard — beranda">
           <span className="font-serif text-xl text-ink italic">Ethylene</span>
-          <span className="font-serif text-xl text-brass">Guard</span>
+          <span className="font-serif text-xl text-brass-ink">Guard</span>
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Navigasi utama">
@@ -57,7 +56,8 @@ export default function Navbar() {
             <Link
               key={n.href}
               href={n.href}
-              className="sc text-ink-soft/75 transition-colors hover:text-brass"
+              aria-current={!n.href.startsWith('/#') && pathname.startsWith(n.href) ? 'page' : undefined}
+              className={`sc transition-colors hover:text-brass ${!n.href.startsWith('/#') && pathname.startsWith(n.href) ? 'text-leaf' : 'text-ink-soft'}`}
             >
               {n.label}
             </Link>
@@ -109,7 +109,7 @@ export default function Navbar() {
               aria-label="Menu navigasi"
             >
               <div className="flex items-center justify-between border-b border-ink/12 px-6 py-5">
-                <span className="sc text-ink-soft/60">Daftar Pelat</span>
+                <span className="sc text-ink-soft">Daftar Pelat</span>
                 <button onClick={() => setOpen(false)} className="-mr-2 p-2 text-ink" aria-label="Tutup menu">
                   <X size={20} strokeWidth={1.5} />
                 </button>
@@ -123,7 +123,7 @@ export default function Navbar() {
                     onClick={() => setOpen(false)}
                     className="flex items-baseline gap-4 border-b border-ink/10 py-4 font-serif text-lg text-ink"
                   >
-                    <span aria-hidden="true" className="text-sm text-brass italic">
+                    <span aria-hidden="true" className="text-sm text-brass-ink italic">
                       {['I', 'II', 'III', 'IV', 'V', 'VI'][i]}
                     </span>
                     {n.label}

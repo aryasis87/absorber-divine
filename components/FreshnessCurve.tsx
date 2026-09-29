@@ -67,7 +67,7 @@ export default function FreshnessCurve() {
         <figure className="border border-ink/15 bg-paper p-6 sm:p-10">
           {/* Keterangan kurva — HTML, bukan teks SVG, agar tetap terbaca di layar kecil */}
           <figcaption className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <span className="sc text-ink-soft/60">Mutu buah · sumbu datar dalam hari</span>
+            <span className="sc text-ink-soft">Mutu buah · sumbu datar dalam hari</span>
             <span className="flex flex-wrap items-center gap-x-6 gap-y-2">
               <span className="flex items-center gap-2.5">
                 <span aria-hidden="true" className="h-[3px] w-7 rounded-full bg-leaf" />
@@ -75,7 +75,7 @@ export default function FreshnessCurve() {
               </span>
               <span className="flex items-center gap-2.5">
                 <span aria-hidden="true" className="h-[3px] w-7 rounded-full bg-plum" />
-                <span className="sc text-ink-soft/70">Tanpa perawatan</span>
+                <span className="sc text-ink-soft">Tanpa perawatan</span>
               </span>
             </span>
           </figcaption>
@@ -120,7 +120,7 @@ export default function FreshnessCurve() {
                 x2={W}
                 y2={y(THRESHOLD)}
                 stroke="currentColor"
-                className="text-brass"
+                className="text-brass-ink"
                 strokeWidth="1.5"
                 strokeDasharray="7 6"
                 vectorEffect="non-scaling-stroke"
@@ -159,7 +159,7 @@ export default function FreshnessCurve() {
               {dayMarks.map((d, i) => (
                 <span
                   key={d}
-                  className={`sc absolute top-0 text-ink-soft/55 ${
+                  className={`sc absolute top-0 text-ink-soft ${
                     i === dayMarks.length - 1 ? '-translate-x-full' : ''
                   }`}
                   style={{ left: `${(d / DAYS) * 100}%` }}
@@ -174,21 +174,21 @@ export default function FreshnessCurve() {
           <div className="mt-10 grid gap-8 border-t border-ink/12 pt-8 sm:grid-cols-2">
             <div>
               <p className="font-serif text-[1.6rem] leading-none text-plum">Hari ke-7</p>
-              <p className="mt-3 text-sm leading-relaxed text-ink-soft/80">
+              <p className="mt-3 text-sm leading-relaxed text-ink-soft">
                 Tanpa perawatan, mutu sudah menyentuh ambang layak jual. Tanda pertama biasanya
                 muncul sejak hari ketiga.
               </p>
             </div>
             <div>
               <p className="font-serif text-[1.6rem] leading-none text-leaf">Hari ke-20</p>
-              <p className="mt-3 text-sm leading-relaxed text-ink-soft/80">
+              <p className="mt-3 text-sm leading-relaxed text-ink-soft">
                 Dengan sachet di dalam kemasan, ambang yang sama baru tercapai hampir tiga minggu
                 kemudian — selisih yang menentukan sampai atau tidaknya sebuah pengapalan.
               </p>
             </div>
           </div>
 
-          <p className="sc mt-8 leading-[1.7] text-ink-soft/45">
+          <p className="sc mt-8 leading-[1.7] text-ink-soft">
             Garis putus kuningan menandai ambang layak jual. Kurva menggambarkan pola umum, bukan
             hasil satu pengujian tunggal.
           </p>

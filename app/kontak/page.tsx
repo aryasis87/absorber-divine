@@ -52,7 +52,7 @@ export default function KontakPage() {
             <dl className="mt-12 grid gap-7 border-t border-paper/20 pt-8 sm:grid-cols-2">
               {saluran.map((s) => (
                 <div key={s.label}>
-                  <dt className="sc text-paper/40">{s.label}</dt>
+                  <dt className="sc text-paper/70">{s.label}</dt>
                   <dd className="mt-1.5 text-sm text-paper">
                     {s.href ? (
                       <a href={s.href} className="break-all transition-colors hover:text-brass-soft">
@@ -62,7 +62,7 @@ export default function KontakPage() {
                       s.value
                     )}
                   </dd>
-                  <dd className="mt-1 text-[0.8125rem] leading-relaxed text-paper/50">{s.note}</dd>
+                  <dd className="mt-1 text-[0.8125rem] leading-relaxed text-paper/70">{s.note}</dd>
                 </div>
               ))}
             </dl>
@@ -72,23 +72,23 @@ export default function KontakPage() {
           <div className="bg-paper p-7 sm:p-10">
             <div className="mb-8 flex items-baseline justify-between border-b border-ink/15 pb-5">
               <h2 className="font-serif text-xl text-ink">Formulir Permintaan</h2>
-              <span className="sc text-ink-soft/45">Lembar EG-01</span>
+              <span className="sc text-ink-soft">Lembar EG-01</span>
             </div>
 
             <AnimatePresence mode="wait">
               {selesai ? (
                 <motion.div key="ok" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="py-10 text-center">
                   <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-brass/50">
-                    <span className="font-serif text-2xl text-brass italic">✓</span>
+                    <span className="font-serif text-2xl text-brass-ink italic">✓</span>
                   </div>
                   <h3 className="font-serif text-xl text-ink">Permintaan tercatat</h3>
-                  <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-ink-soft/80">
+                  <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-ink-soft">
                     Terima kasih. Halaman ini konsep desain untuk kontes, jadi formulir belum
                     tersambung dan data muatan Anda tidak terkirim.
                   </p>
                   <button
                     onClick={() => setSelesai(false)}
-                    className="sc mt-8 border-b border-brass/50 pb-1 text-brass hover:border-brass"
+                    className="sc mt-8 border-b border-brass/50 pb-1 text-brass-ink hover:border-brass"
                   >
                     Isi permintaan lain
                   </button>
@@ -103,7 +103,7 @@ export default function KontakPage() {
                   </div>
 
                   <div className="border-t border-ink/12 pt-6">
-                    <p className="sc mb-5 text-brass">Data muatan</p>
+                    <p className="sc mb-5 text-brass-ink">Data muatan</p>
                     <div className="grid gap-6 sm:grid-cols-2">
                       <Field label="Komoditas" name="komoditas" value={form.komoditas} onChange={ubah} placeholder="Mis. manggis" required />
                       <Field label="Volume ruang (m³)" name="volume" type="number" min="1" value={form.volume} onChange={ubah} placeholder="Mis. 33" required />
@@ -114,7 +114,7 @@ export default function KontakPage() {
                   </div>
 
                   <div className="border-t border-ink/12 pt-6">
-                    <label htmlFor="catatan" className="sc mb-3 block text-ink-soft/60">
+                    <label htmlFor="catatan" className="sc mb-3 block text-ink-soft">
                       Catatan tambahan
                     </label>
                     <textarea
@@ -136,7 +136,7 @@ export default function KontakPage() {
                     {mengirim ? 'Mengirim…' : 'Kirim Permintaan'}
                   </button>
 
-                  <p className="sc leading-[1.7] text-ink-soft/40">
+                  <p className="sc leading-[1.7] text-ink-soft">
                     Purwarupa desain — pengiriman formulir disimulasikan dan data tidak tersimpan.
                   </p>
                 </motion.form>
@@ -152,7 +152,7 @@ export default function KontakPage() {
           <p className="font-serif text-lg text-ink italic">
             Sebagian besar pertanyaan sudah terjawab lengkap di lembar tanya jawab.
           </p>
-          <Link href="/faq" className="sc mx-auto border-b border-brass/50 pb-1 text-brass hover:border-brass">
+          <Link href="/faq" className="sc mx-auto border-b border-brass/50 pb-1 text-brass-ink hover:border-brass">
             Buka Pelat VIII
           </Link>
         </div>
@@ -175,9 +175,9 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={name} className="sc mb-3 block text-ink-soft/60">
+      <label htmlFor={name} className="sc mb-3 block text-ink-soft">
         {label}
-        {required && <span className="ml-1 text-brass">*</span>}
+        {required && <span className="ml-1 text-brass-ink">*</span>}
       </label>
       <input
         id={name}
